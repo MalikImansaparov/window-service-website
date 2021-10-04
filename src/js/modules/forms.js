@@ -1,4 +1,4 @@
-import { checkNumInputs } from './checkNumInputs';
+import checkNumInputs from './checkNumInputs';
 
 const forms = (state) => {
   const form = document.querySelectorAll('form'),
@@ -12,8 +12,8 @@ const forms = (state) => {
     failure: 'Что-то пошло не так...',
   };
 
+  // settings fetch
   const postData = async (url, data) => {
-    // отправка данных на сервер
     document.querySelector('.status').textContent = message.loading;
     let res = await fetch(url, {
       method: 'POST',
@@ -35,17 +35,18 @@ const forms = (state) => {
 
       let statusMessage = document.createElement('div');
       statusMessage.classList.add('status');
-      item.appendChild(statusMessage);
+      item.appendChild(statusMessage); // where show send status
 
-      const formData = new FormData(item);
+      const formData = new FormData(item); //grouping data
+
       if (item.getAttribute('data-calc') === 'end') {
         for (let key in state) {
-          formData.append(key, state(key));
+          formData.append(key, state[key]);
         }
       }
-      postData('assets/server.php', formData) // получение данных из сервера
+      // send data to server
+      postData('assets/server.php', formData)
         .then((res) => {
-          console.log(res);
           statusMessage.textContent = message.success;
         })
         .catch(() => (statusMessage.textContent = message.failure))

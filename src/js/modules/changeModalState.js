@@ -9,7 +9,7 @@ const changeModalState = (state) => {
 
   checkNumInputs('#width');
   checkNumInputs('#height');
-
+  // bind user select action on the request
   function bindActionToElems(event, elem, prop) {
     elem.forEach((item, i) => {
       item.addEventListener(event, () => {
@@ -34,8 +34,6 @@ const changeModalState = (state) => {
             state[prop] = item.value;
             break;
         }
-
-        console.log(state);
       });
     });
   }

@@ -26,15 +26,16 @@ const tabs = (
 
   hideTabContent();
   showTabContent();
-
+  
   header.addEventListener('click', (e) => {
     const target = e.target;
     if (
-      target && //проверка на нажатого таба
-      (target.classList.contains(tabSelector.replace(/\./, '')) ||
+      target &&
+      (target.classList.contains(tabSelector.replace(/\./, '')) || //delete class dotes
         target.parentNode.classList.contains(tabSelector.replace(/\./, '')))
     ) {
       tab.forEach((item, i) => {
+        // check which tabs were pressed
         if (target == item || target.parentNode == item) {
           hideTabContent();
           showTabContent(i);
