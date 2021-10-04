@@ -1,4 +1,5 @@
-const images = () => {
+
+export const images = () => {
     const imgPopup = document.createElement('div'),
           workSection = document.querySelector('.works'),
           bigImage = document.createElement('img');
@@ -28,5 +29,3 @@ const images = () => {
         }
     });
 };
-
-export default images;
