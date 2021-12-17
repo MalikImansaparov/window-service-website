@@ -27,7 +27,7 @@ $ git clone https://github.com/MalikImansaparov/window-service-website-.git
 
 Navigate to the extracted folder
 ```sh 
-cd book-store-app
+cd window-service-website
 ```
 
 Install the dependencies and modules
