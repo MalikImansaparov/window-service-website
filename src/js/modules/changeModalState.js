@@ -14,7 +14,7 @@ const changeModalState = (state) => {
     elem.forEach((item, i) => {
       item.addEventListener(event, () => {
         switch (item.nodeName) {
-          case 'SPAN':
+          case 'SPAN': // nodeName uppercase
             state[prop] = i;
             break;
           case 'INPUT':
